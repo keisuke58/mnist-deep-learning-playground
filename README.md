@@ -45,7 +45,8 @@ python make_showcase.py
 | VAE | `models/vae.pth` | ~2MB |
 | DCGAN Generator | `models/gan_generator.pth` | ~3MB |
 | Diffusion U-Net | `models/diffusion.pth` | ~5MB |
-| GNN | `models/gnn_mnist.pth` | ~100KB |
+| GNN-GAT (98.36%) | `models/gnn_mnist.pth` | ~500KB |
+| RL Writer (PPO) | `models/rl_writer.pth` | ~3MB |
 
 ## Sample Outputs
 
@@ -57,8 +58,8 @@ Smooth interpolation between digit classes in 2D latent space:
 ### VAE Morphing: 0 → 9
 ![Morph](outputs/vae_morph_0_to_9.png)
 
-### DCGAN Generated Digits
-![GAN](outputs/gan_epoch050.png)
+### DCGAN Generated Digits (200 epochs)
+![GAN](outputs/gan_final.png)
 
 ### Diffusion Model (DDPM)
 ![Diffusion](outputs/diffusion_epoch030.png)
@@ -67,6 +68,16 @@ Smooth interpolation between digit classes in 2D latent space:
 Invisible perturbations that fool a 99% accurate CNN:
 
 ![Adversarial](outputs/adversarial_fgsm.png)
+
+### GNN-GAT Classification (98.36%)
+Pixels converted to graph nodes with 8-neighbor edges. GAT with multi-head attention achieves 98.36% — remarkably close to CNN despite operating on sparse graphs:
+
+![GNN Graph Visualization](outputs/gnn_graph_viz.png)
+
+### RL Digit Writer (PPO)
+A PPO agent learns to control a pen on a 28×28 canvas to draw the digit "7". Training progression over 5000 episodes:
+
+![RL Progression](outputs/rl_progression.png)
 
 ### t-SNE Feature Embedding
 10,000 test digits projected from 128-dim CNN features:
