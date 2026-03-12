@@ -1,5 +1,5 @@
 """
-Step 4: Diffusion Model (DDPM) — 今一番ホットな生成モデル
+Step 4: Diffusion Model (DDPM) — 生成モデル
 ノイズから徐々にデノイズして数字を生成
 """
 import torch
