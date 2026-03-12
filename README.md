@@ -10,12 +10,12 @@
 |---|-----------|--------|------------|
 | 1 | **CNN Classification** | `01_basic_cnn.py` | 99.35% accuracy in 10 epochs |
 | 2 | **VAE** (Variational Autoencoder) | `02_vae.py` | 2D latent space + digit morphing |
-| 3 | **DCGAN** (Generative Adversarial Network) | `03_gan.py` | Realistic digit generation |
+| 3 | **DCGAN** (Generative Adversarial Network) | `03_gan.py` | 200ep, hinge loss + spectral norm |
 | 4 | **Diffusion Model** (DDPM) | `04_diffusion.py` | Denoising-based generation |
-| 5 | **GNN** (Graph Neural Network) | `05_gnn_mnist.py` | Pixels as graph nodes, 70.3% |
+| 5 | **GNN-GAT** (Graph Attention Network) | `05_gnn_mnist.py` | Pixels as graph nodes, **98.36%** |
 | 6 | **Adversarial Attacks** (FGSM/PGD) | `06_adversarial_attack.py` | Invisible perturbations fool 99% CNN |
 | 7 | **Feature Visualization** | `07_neural_style_transfer.py` | t-SNE, activation maps, dream digits |
-| 8 | **RL Digit Writer** | `08_reinforcement_learning.py` | DQN agent learns to draw digits |
+| 8 | **RL Digit Writer** (PPO) | `08_reinforcement_learning.py` | PPO agent learns to draw digit "7" |
 
 ## Quick Start
 

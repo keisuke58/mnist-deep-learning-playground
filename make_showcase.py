@@ -22,9 +22,9 @@ gs = gridspec.GridSpec(4, 2, hspace=0.35, wspace=0.15,
 
 panels = [
     # (row, col, image_path, title, description)
-    (0, 0, "outputs/gan_epoch050.png",
+    (0, 0, "outputs/gan_final.png",
      "1. DCGAN — Generative Adversarial Network",
-     "Generator vs Discriminator battle produces realistic handwritten digits"),
+     "200 epochs with hinge loss + spectral norm — crisp handwritten digits"),
 
     (0, 1, "outputs/vae_latent_space.png",
      "2. VAE — Variational Autoencoder",
@@ -76,7 +76,7 @@ for row, col, img_path, title, desc in panels:
 
 # Footer
 fig.text(0.5, 0.005,
-         "CNN 99.35% | VAE 2D Latent | DCGAN 50ep | DDPM 30ep | GNN 70.3% | FGSM/PGD Attacks | t-SNE | DeepDream | RL Writer",
+         "CNN 99.35% | VAE 2D Latent | DCGAN 200ep | DDPM 30ep | GNN-GAT 98.36% | FGSM/PGD Attacks | t-SNE | DeepDream | RL-PPO Writer",
          ha="center", fontsize=13, color="#666666")
 
 plt.savefig("showcase.png", dpi=150, facecolor="black", edgecolor="none",
