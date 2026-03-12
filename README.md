@@ -22,21 +22,18 @@
 ## Quick Start
 
 ```bash
-# Install dependencies
 pip install torch torchvision torch-geometric scikit-learn matplotlib Pillow
 
-# Run all experiments sequentially
-python 01_basic_cnn.py
-python 02_vae.py
-python 03_gan.py
-python 04_diffusion.py
-python 05_gnn_mnist.py
+python 01_basic_cnn.py    # CNN
+python 02_vae.py          # VAE
+python 03_gan.py          # GAN
+python 04_diffusion.py    # Diffusion
+python 05_gnn_mnist.py    # GNN
 python 06_adversarial_attack.py
 python 07_neural_style_transfer.py
 python 08_reinforcement_learning.py
 
-# Generate showcase image
-python make_showcase.py
+python make_showcase.py   # Generate showcase
 ```
 
 ## Pre-trained Models
@@ -50,49 +47,65 @@ python make_showcase.py
 | GNN-GAT (98.36%) | `models/gnn_mnist.pth` | ~500KB |
 | RL Writer (PPO) | `models/rl_writer.pth` | ~3MB |
 
-## Sample Outputs
+---
 
-### DCGAN Generated Digits (200 epochs)
+## Results
 
-<img src="outputs/gan_final.png" width="500">
+### 1. DCGAN — Generation Quality Over Training
 
-### VAE Latent Space
+<img src="outputs/gan_progression.png" width="800">
 
-Smooth interpolation between digit classes in 2D latent space:
+After 200 epochs with hinge loss + spectral norm, the generator produces crisp, diverse handwritten digits.
 
-<img src="outputs/vae_latent_space.png" width="500">
+<img src="outputs/gan_final.png" width="400">
 
-### VAE Morphing: 0 → 9
+### 2. VAE — Latent Space, Samples & Morphing
 
-<img src="outputs/vae_morph_0_to_9.png" width="600">
+<img src="outputs/vae_combined.png" width="800">
 
-### Diffusion Model (DDPM)
+2D latent space enables smooth interpolation. Walking through the space morphs one digit into another.
 
-<img src="outputs/diffusion_epoch030.png" width="500">
+### 3. Diffusion Model (DDPM)
 
-### Adversarial Attacks
+<img src="outputs/diffusion_epoch030.png" width="400">
 
-Invisible perturbations that fool a 99% accurate CNN:
+U-Net iteratively denoises pure Gaussian noise into recognizable digits over 1000 timesteps.
 
-<img src="outputs/adversarial_fgsm.png" width="400">
-
-### GNN-GAT Classification (98.36%)
-
-Pixels converted to graph nodes with 8-neighbor edges. GAT with multi-head attention achieves 98.36%:
+### 4. GNN-GAT — Pixels as Graph Nodes (98.36%)
 
 <img src="outputs/gnn_graph_viz.png" width="700">
 
-### RL Digit Writer (PPO)
+Each bright pixel becomes a graph node, connected to 8 neighbors. Graph Attention Network with multi-head attention achieves **98.36%** — remarkably close to CNN.
 
-PPO agent learns to control a pen on a 28x28 canvas. Training progression over 5000 episodes:
+### 5. Adversarial Attacks
 
-<img src="outputs/rl_progression.png" width="700">
+<img src="outputs/adversarial_combined.png" width="700">
 
-### t-SNE Feature Embedding
+FGSM and PGD generate invisible perturbations that fool a 99% accurate CNN. Targeted attacks force any digit to be classified as "3".
 
-10,000 test digits projected from 128-dim CNN features:
+### 6. Inside the CNN — Filters, Activations & Dream Digits
+
+<img src="outputs/cnn_internals.png" width="800">
+
+Visualizing what the network learns: conv1 filters, activation maps on a sample digit, and gradient-ascent "dream" images revealing each class's ideal pattern.
+
+### 7. t-SNE Feature Embedding
 
 <img src="outputs/tsne_features.png" width="500">
+
+10,000 test digits projected from 128-dim CNN features to 2D. Clean cluster separation shows the network has learned meaningful representations.
+
+### 8. RL Digit Writer (PPO)
+
+A PPO agent controls a pen on a 28x28 canvas to draw "7". Training progression:
+
+<img src="outputs/rl_detailed_progression.png" width="800">
+
+<img src="outputs/rl_reward_curve.png" width="600">
+
+The agent starts with random scribbles, learns stroke patterns by episode 1000, and peaks at episode 4500 (best reward: 6.756).
+
+---
 
 ## Requirements
 
