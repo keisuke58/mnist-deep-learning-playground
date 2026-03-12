@@ -2,7 +2,9 @@
 
 8 experiments exploring the full spectrum of deep learning — from basic classification to generative models, adversarial attacks, and reinforcement learning — all on MNIST.
 
-![Showcase](showcase_web.png)
+<p align="center">
+  <img src="showcase_web.png" width="800">
+</p>
 
 ## Experiments
 
@@ -50,39 +52,47 @@ python make_showcase.py
 
 ## Sample Outputs
 
+### DCGAN Generated Digits (200 epochs)
+
+<img src="outputs/gan_final.png" width="500">
+
 ### VAE Latent Space
+
 Smooth interpolation between digit classes in 2D latent space:
 
-![VAE Latent Space](outputs/vae_latent_space.png)
+<img src="outputs/vae_latent_space.png" width="500">
 
 ### VAE Morphing: 0 → 9
-![Morph](outputs/vae_morph_0_to_9.png)
 
-### DCGAN Generated Digits (200 epochs)
-![GAN](outputs/gan_final.png)
+<img src="outputs/vae_morph_0_to_9.png" width="600">
 
 ### Diffusion Model (DDPM)
-![Diffusion](outputs/diffusion_epoch030.png)
+
+<img src="outputs/diffusion_epoch030.png" width="500">
 
 ### Adversarial Attacks
+
 Invisible perturbations that fool a 99% accurate CNN:
 
-![Adversarial](outputs/adversarial_fgsm.png)
+<img src="outputs/adversarial_fgsm.png" width="400">
 
 ### GNN-GAT Classification (98.36%)
-Pixels converted to graph nodes with 8-neighbor edges. GAT with multi-head attention achieves 98.36% — remarkably close to CNN despite operating on sparse graphs:
 
-![GNN Graph Visualization](outputs/gnn_graph_viz.png)
+Pixels converted to graph nodes with 8-neighbor edges. GAT with multi-head attention achieves 98.36%:
+
+<img src="outputs/gnn_graph_viz.png" width="700">
 
 ### RL Digit Writer (PPO)
-A PPO agent learns to control a pen on a 28×28 canvas to draw the digit "7". Training progression over 5000 episodes:
 
-![RL Progression](outputs/rl_progression.png)
+PPO agent learns to control a pen on a 28x28 canvas. Training progression over 5000 episodes:
+
+<img src="outputs/rl_progression.png" width="700">
 
 ### t-SNE Feature Embedding
+
 10,000 test digits projected from 128-dim CNN features:
 
-![t-SNE](outputs/tsne_features.png)
+<img src="outputs/tsne_features.png" width="500">
 
 ## Requirements
 
